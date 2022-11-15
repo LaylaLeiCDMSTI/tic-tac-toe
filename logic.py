@@ -1,7 +1,7 @@
 # This file is where game logic lives. No input
 # or output happens here. The logic in this file
 # should be unit-testable.
-
+import random
 
 def make_empty_board():
     return [
@@ -11,7 +11,11 @@ def make_empty_board():
     ]
 
 def start_player():
-    return input("choose to start as 'X' or 'O':")
+    mode = int(input("type 1 to play with a bot \ntype 2 to play with another player"))
+    if mode == 1:
+        return 'B'
+    else:
+        return input("choose to start as 'X' or 'O':")
 
 def get_winner(board):
     """Determines the winner of the given board.
@@ -52,7 +56,11 @@ def get_winner(board):
             winCheck = True
             print("player", pos[0], "wins the game")
             return pos[0]
-    if None not in pos:
+    boardlist = []
+    for n in board:
+        for m in n:
+            boardlist.append(m)
+    if None not in boardlist:
             winCheck = False
             print("Draw")
             return 'Draw'
@@ -69,3 +77,9 @@ def other_player(player):
         player = "X"
         print("X's turn")
         return player
+
+
+def bot_choice():
+    num = random.randint(1,3)
+    return num
+
