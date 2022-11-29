@@ -3,6 +3,7 @@
 # should be unit-testable.
 import random
 
+
 class tictactoe:
 
     def __inti__(self):
@@ -101,7 +102,7 @@ class tictactoe:
                     while board[bx-1][by-1] != None:
                         winner = self.get_winner(board)
                         if winner == "Draw" or winner == "P" or winner == "B":
-                            break
+                            return
                         else:
                             bx = self.bot_choice()
                             by = self.bot_choice()
